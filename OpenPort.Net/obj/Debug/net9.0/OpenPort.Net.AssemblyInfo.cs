@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("OpenPort.Net")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+70277092319a6e9e20c24ad67ba9aa86fe6afa23")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
 [assembly: System.Reflection.AssemblyProductAttribute("OpenPort.Net")]
 [assembly: System.Reflection.AssemblyTitleAttribute("OpenPort.Net")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

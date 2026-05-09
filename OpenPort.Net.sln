@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenPort.Net", "OpenPort.Net\OpenPort.Net.csproj", "{EAC6B64B-EC3A-4B7C-BBA0-6B5E97650F08}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenPort.Net", "OpenPort.Net\OpenPort.Net.csproj", "{1FBFE6D8-7A0D-4967-B073-29EA63B5186F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -8,9 +8,9 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{EAC6B64B-EC3A-4B7C-BBA0-6B5E97650F08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EAC6B64B-EC3A-4B7C-BBA0-6B5E97650F08}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EAC6B64B-EC3A-4B7C-BBA0-6B5E97650F08}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EAC6B64B-EC3A-4B7C-BBA0-6B5E97650F08}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1FBFE6D8-7A0D-4967-B073-29EA63B5186F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1FBFE6D8-7A0D-4967-B073-29EA63B5186F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1FBFE6D8-7A0D-4967-B073-29EA63B5186F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1FBFE6D8-7A0D-4967-B073-29EA63B5186F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -4,7 +4,7 @@ namespace OpenPort.Net;
 
 public class NatDeviceSearcher
 {
-    private List<PortMapper> _portMappers =
+    private readonly List<PortMapper> _portMappers =
     [
         new PcpPortMapper()
     ];
@@ -12,11 +12,11 @@ public class NatDeviceSearcher
     public async Task<NatDevice?> DiscoverDeviceAsync(CancellationToken cancellationToken)
     {
         NatDevice? device = null;
-        foreach (var portMapper in _portMappers)
+        foreach (var portMapper in _portMappers.TakeWhile(_ => !cancellationToken.IsCancellationRequested))
         {
             try
             {
-                await portMapper.Discover(cancellationToken);
+                device = await portMapper.Discover(cancellationToken);
             }
             catch
             {

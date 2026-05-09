@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "jCgdxgC0H4M=",
+  "success": true,
+  "projectFilePath": "/home/asukaw/RiderProjects/OpenPort.Net/OpenPort.Net/OpenPort.Net.csproj",
+  "expectedPackageFiles": [
+    "/home/asukaw/.nuget/packages/microsoft.netcore.app.ref/9.0.15/microsoft.netcore.app.ref.9.0.15.nupkg.sha512",
+    "/home/asukaw/.nuget/packages/microsoft.aspnetcore.app.ref/9.0.15/microsoft.aspnetcore.app.ref.9.0.15.nupkg.sha512"
+  ],
+  "logs": []
+}

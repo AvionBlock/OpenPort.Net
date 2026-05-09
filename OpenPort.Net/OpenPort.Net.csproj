@@ -1,8 +1,29 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>net8.0;netstandard2.1</TargetFrameworks>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <PackageId>OpenPort.Net</PackageId>
+    <Version>1.0.0</Version>
+    <Title>OpenPort.Net</Title>
+    <Authors>OpenPort.Net contributors</Authors>
+    <Description>Cross-platform .NET library for automatic NAT port mapping via UPnP IGD, NAT-PMP and PCP.</Description>
+    <PackageReleaseNotes>Initial v1.0 test release with UPnP IGD, NAT-PMP, PCP, provider fallback, renew leases, XML docs, sample app and mocked router tests.</PackageReleaseNotes>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageTags>nat;port-forwarding;upnp;nat-pmp;pcp;networking</PackageTags>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/AvionBlock/OpenPort.Net</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/AvionBlock/OpenPort.Net</PackageProjectUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <ContinuousIntegrationBuild Condition="'$(CI)' == 'true'">true</ContinuousIntegrationBuild>
+  </PropertyGroup>
 
-    <PropertyGroup>
-        <TargetFramework>net9.0</TargetFramework>
-        <ImplicitUsings>enable</ImplicitUsings>
-        <Nullable>enable</Nullable>
-    </PropertyGroup>
+  <ItemGroup>
+    <None Include="..\README.md" Pack="true" PackagePath="\" />
+    <InternalsVisibleTo Include="OpenPort.Net.Tests" />
+  </ItemGroup>
 </Project>

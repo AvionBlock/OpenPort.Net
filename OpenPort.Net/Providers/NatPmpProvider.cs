@@ -20,11 +20,22 @@ public sealed class NatPmpProvider : IPortMappingProvider
     /// Creates a NAT-PMP provider using automatic gateway discovery.
     /// </summary>
     public NatPmpProvider(TimeSpan timeout)
-        : this(timeout, null)
+        : this(timeout, (IPEndPoint?)null)
     {
     }
 
-    internal NatPmpProvider(TimeSpan timeout, IPEndPoint? gatewayEndPoint)
+    /// <summary>
+    /// Creates a NAT-PMP provider that targets a specific gateway address on UDP port 5351.
+    /// </summary>
+    public NatPmpProvider(TimeSpan timeout, IPAddress gatewayAddress)
+        : this(timeout, new IPEndPoint(gatewayAddress, NatPmpPort))
+    {
+    }
+
+    /// <summary>
+    /// Creates a NAT-PMP provider that targets a specific gateway endpoint.
+    /// </summary>
+    public NatPmpProvider(TimeSpan timeout, IPEndPoint? gatewayEndPoint)
     {
         _udpRequester = new UdpRequester(timeout);
         _configuredGatewayEndPoint = gatewayEndPoint;

@@ -40,6 +40,25 @@ public class OpenPortClientTests
     }
 
     [Fact]
+    public async Task Constructor_UsesProvidersFromOptionsWhenSupplied()
+    {
+        var first = new FakeProvider("first", OpenPortStatus.Success);
+        var second = new FakeProvider("second", OpenPortStatus.Success);
+        var client = new OpenPortClient(new OpenPortOptions
+        {
+            Providers = [first, second],
+            PreferredProtocols = [PortMappingProtocol.UpnpIgd]
+        });
+
+        var result = await client.OpenAsync(NewMapping());
+
+        Assert.Equal(OpenPortStatus.Success, result.Status);
+        Assert.Equal("first", result.Provider);
+        Assert.Equal(1, first.OpenCalls);
+        Assert.Equal(0, second.OpenCalls);
+    }
+
+    [Fact]
     public async Task CloseAsync_UsesOriginalMappingKeyWhenExternalPortChanged()
     {
         var first = new FakeProvider("first", OpenPortStatus.ExternalPortChanged, assignedExternalPort: 19133);

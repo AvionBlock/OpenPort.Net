@@ -57,7 +57,7 @@ await using var lease = await client.OpenLeaseAsync(new PortMapping
 
 `OpenPortLease` renews temporary mappings and closes the mapping when disposed.
 
-## Provider Order
+## Provider Customization
 
 The default order is:
 
@@ -65,7 +65,26 @@ The default order is:
 2. NAT-PMP
 3. UPnP IGD
 
-You can override it:
+For full customisation, pass provider instances. This controls both order and implementation:
+
+```csharp
+using OpenPort.Net.Providers;
+
+var client = new OpenPortClient(new OpenPortOptions
+{
+    Providers =
+    [
+        new UpnpIgdProvider(TimeSpan.FromSeconds(5)),
+        new NatPmpProvider(TimeSpan.FromSeconds(5)),
+        new PcpProvider(TimeSpan.FromSeconds(5))
+    ],
+    Timeout = TimeSpan.FromSeconds(5)
+});
+```
+
+You can also implement `IPortMappingProvider` and put your own provider in the list.
+
+For simple built-in provider reordering, `PreferredProtocols` is still available:
 
 ```csharp
 var client = new OpenPortClient(new OpenPortOptions
@@ -75,8 +94,7 @@ var client = new OpenPortClient(new OpenPortOptions
         PortMappingProtocol.UpnpIgd,
         PortMappingProtocol.NatPmp,
         PortMappingProtocol.Pcp
-    ],
-    Timeout = TimeSpan.FromSeconds(5)
+    ]
 });
 ```
 

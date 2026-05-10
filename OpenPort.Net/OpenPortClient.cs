@@ -30,6 +30,13 @@ public sealed class OpenPortClient
     public OpenPortClient(OpenPortOptions options)
     {
         _options = options ?? throw new ArgumentNullException(nameof(options));
+        if (options.Providers is not null)
+        {
+            _providers = options.Providers.ToList();
+            _providerByProtocol = new Dictionary<PortMappingProtocol, IPortMappingProvider>();
+            return;
+        }
+
         var gatewayEndPoint = options.GatewayAddress is null ? null : new IPEndPoint(options.GatewayAddress, 5351);
         _providerByProtocol = new Dictionary<PortMappingProtocol, IPortMappingProvider>
         {

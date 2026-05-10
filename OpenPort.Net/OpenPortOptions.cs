@@ -1,4 +1,5 @@
 using OpenPort.Net.Models;
+using OpenPort.Net.Providers;
 using System.Net;
 
 namespace OpenPort.Net;
@@ -9,7 +10,12 @@ namespace OpenPort.Net;
 public sealed class OpenPortOptions
 {
     /// <summary>
-    /// Gets the protocol order used by <see cref="OpenPortClient"/> when opening, renewing or closing mappings.
+    /// Gets explicit provider instances used by <see cref="OpenPortClient"/>. When set, this list defines both provider order and behavior.
+    /// </summary>
+    public IReadOnlyList<IPortMappingProvider>? Providers { get; init; }
+
+    /// <summary>
+    /// Gets the protocol order used to create built-in providers when <see cref="Providers"/> is not set.
     /// </summary>
     public IReadOnlyList<PortMappingProtocol> PreferredProtocols { get; init; } =
     [

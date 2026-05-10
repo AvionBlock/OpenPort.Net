@@ -22,11 +22,22 @@ public sealed class PcpProvider : IPortMappingProvider
     /// Creates a PCP provider using automatic gateway discovery.
     /// </summary>
     public PcpProvider(TimeSpan timeout)
-        : this(timeout, null)
+        : this(timeout, (IPEndPoint?)null)
     {
     }
 
-    internal PcpProvider(TimeSpan timeout, IPEndPoint? gatewayEndPoint)
+    /// <summary>
+    /// Creates a PCP provider that targets a specific gateway address on UDP port 5351.
+    /// </summary>
+    public PcpProvider(TimeSpan timeout, IPAddress gatewayAddress)
+        : this(timeout, new IPEndPoint(gatewayAddress, PcpPort))
+    {
+    }
+
+    /// <summary>
+    /// Creates a PCP provider that targets a specific gateway endpoint.
+    /// </summary>
+    public PcpProvider(TimeSpan timeout, IPEndPoint? gatewayEndPoint)
     {
         _udpRequester = new UdpRequester(timeout);
         _configuredGatewayEndPoint = gatewayEndPoint;
